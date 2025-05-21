@@ -1,0 +1,25 @@
+services:
+  php:
+    build: .
+    container_name: php_container
+    depends_on:
+      - postgres
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_DB: php_bank
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "12345"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
