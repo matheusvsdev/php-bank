@@ -1,8 +1,7 @@
 <?php
-
-function loadEnv($file = __DIR__ . '/../.env') {
+function loadEnv($file = '/var/www/html/.env') {
     if (!file_exists($file)) {
-        die("Arquivo .env não encontrado!");
+        die("Arquivo .env não encontrado! Caminho tentado: " . $file);
     }
 
     $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
