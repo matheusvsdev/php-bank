@@ -3,3 +3,5 @@
 
 # Configurações do Editor
 .vscode/
+
+.env
